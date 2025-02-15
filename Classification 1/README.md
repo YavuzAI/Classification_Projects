@@ -64,7 +64,7 @@ After data preprocessing, balancing, and scaling, our deep learning model demons
 ---
 
 ## Conclusion
-In this project, we tackled a **high-dimensional, imbalanced** dataset by:
+In this project, I tackled a **high-dimensional, imbalanced** dataset by:
 
 - Evaluating linear vs. non-linear relationships  
 - Applying SMOTE for class balancing  
