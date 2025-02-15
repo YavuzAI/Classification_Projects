@@ -49,5 +49,5 @@ By combining **correlation-based feature filtering**, **comprehensive data visua
 
 **Potential Next Steps**  
 - **Further Dimensionality Reduction**: Techniques like PCA or autoencoders may uncover more compact representations.  
-- **Advanced Models**: Exploring gradient boosting or deep learning architectures could improve performance further.  
+- **Advanced Models**: Exploring deep learning architectures could improve performance further.  
 - **Data Expansion**: Collecting additional samples or leveraging domain knowledge may help refine model accuracy and interpretability.
