@@ -2,6 +2,9 @@
 
 This project focuses on predicting whether a patient has Schizophrenia (binary classification) using a dataset that includes **Functional Network Connectivity (FNC)** and **Source-Based Morphometry (SBM)** features. The dataset is **high-dimensional**, containing **86 rows** and **412 features**, which necessitated careful data preparation, correlation analysis, and hyperparameter tuning to achieve a robust predictive model.
 
+- **train_FNC.csv** - FNC features for the training set. These are correlation values. They describe the connection level between pairs of brain maps over time.
+- **train_SBM.csv** - SBM features for the training set. These are standardized weights. They describe the expression level of ICA brain maps derived from gray-matter concentration.
+
 ---
 
 ## Overview
