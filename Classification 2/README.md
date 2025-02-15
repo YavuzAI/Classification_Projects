@@ -1,60 +1,50 @@
-# Predicting Schizophrenia based on FNC and SBM values
+# Predicting Schizophrenia Based on FNC and SBM Values
 
-This project focuses on predicting whether a patient has Schizophrenia or not binary classificaiton. The dataset is  **high-dimensional**, with **86** rows and **412** features. To tackle challenges with the data, i applied several data preparation techniques, evaluated pearson corrleation, visualized the data, and trained random forest model with grid search hyperparameterr tuning to get the best of the model to achieve high predictive accuracy.
+This project focuses on predicting whether a patient has Schizophrenia (binary classification) using a dataset that includes **Functional Network Connectivity (FNC)** and **Source-Based Morphometry (SBM)** features. The dataset is **high-dimensional**, containing **86 rows** and **412 features**, which necessitated careful data preparation, correlation analysis, and hyperparameter tuning to achieve a robust predictive model.
 
 ---
 
 ## Overview
 
-Due to the **large dimensionality (412 features)** and **complex, uninformative feature names**, straightforward inspection of the dataset is not feasible. The numeric columns provide little immediate insight but applying advanced data manipulation and exploration techniques was necessary.
+Due to the **large number of features (412)** and **limited sample size (86)**, the data is both challenging to interpret and prone to overfitting. Feature names are not inherently descriptive, and straightforward inspection is difficult. Therefore, we employed advanced data manipulation, visualization, and model selection techniques to uncover meaningful patterns and build a reliable classifier.
 
 ---
 
 ## Key Steps
 
-### 1. Finding High linearly correlated features
-I applied a filtering process where i can spot  highly correlated features because we have more than 412 of them, after finding them i visualized the outliers and could not foind one with outliers. 
+### 1. Identifying Highly Correlated Features
+- **Pearson Correlation**: We computed correlation coefficients to find features that were highly linearly correlated. Reducing redundant features helps mitigate multicollinearity.
+- **Outlier Inspection**: Although we searched for outliers, none were found that warranted removal.
 
 ---
 
-### 2. Data Visualziation
-I used matplotlib ad seaborn libraries to create visualizations for the data. I utilized plt.subplots() method to create a grid for the plots and used seaborn to plot the plots. 
+### 2. Data Visualization
+- **Matplotlib & Seaborn**: We created various plots (e.g., histograms, pair plots, correlation heatmaps) using `plt.subplots()` and Seaborn functions.
+- **Insights**: These visualizations provided a clearer picture of feature distributions and relationships within the data.
 
 ![Plots](screenshots/plot_w_sns_plt.png)
 
 ---
 
-### 3. QuantileTransformer for Scaling
+### 3. Grid Search for Model Tuning
+- **Model Selection**: We experimented with multiple classification algorithms (e.g., Logistic Regression, SVM, Random Forest). Random Forest gave the most promising initial results.
+- **Hyperparameter Optimization**: We used Grid Search to fine-tune parameters such as `n_estimators`, `max_depth`, and more.
+  
+  ![Parameters](screenshots/parameters.png)
 
-## 4. Deep Learning Model
-A deep learning architecture was implemented to handle the high-dimensional feature space. Below are snapshots of the model’s structure and the training progression:
-
-### Model Architecture
-![Linearity](screenshots/1_model.png)
-![Linearity](screenshots/2_model.png)
 ---
 
-### Initial Epochs
-The model converged relatively quickly:
-![Linearity](screenshots/initial_epochs.png)
----
-
-### Final Epochs
-By the end of training, the model achieved nearly **95% accuracy**:
-![Linearity](screenshots/final_epochs.png)
----
-
-## 5. Prediction Results
-After data preprocessing, balancing, and scaling, our deep learning model demonstrated strong predictive performance on the test set. These results highlight the effectiveness of the chosen techniques.
+### 4. Results
+- **Final Model**: After applying the optimized hyperparameters to the entire dataset, our Random Forest model achieved an accuracy of **~80%** on the private leaderboard of Kaggle.
+- **Significance**: This performance is notable given the high dimensionality and relatively small sample size.
 
 ---
 
 ## Conclusion
-In this project, I tackled a **high-dimensional, imbalanced** dataset by:
 
-- Evaluating linear vs. non-linear relationships  
-- Applying SMOTE for class balancing  
-- Using Quantile Transformation for scaling  
-- Training a deep neural network  
+By combining **correlation-based feature filtering**, **comprehensive data visualization**, and a **hyperparameter-tuned Random Forest**, we effectively tackled a complex, high-dimensional dataset to predict Schizophrenia with solid accuracy. 
 
-These steps allowed us to extract meaningful insights and achieve an accuracy of nearly **92%*
+**Potential Next Steps**  
+- **Further Dimensionality Reduction**: Techniques like PCA or autoencoders may uncover more compact representations.  
+- **Advanced Models**: Exploring gradient boosting or deep learning architectures could improve performance further.  
+- **Data Expansion**: Collecting additional samples or leveraging domain knowledge may help refine model accuracy and interpretability.
