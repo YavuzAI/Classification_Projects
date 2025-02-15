@@ -17,6 +17,11 @@ The primary intention of this repository is to:
 ### Project 1: [Santander Customer Satisfaction Classification]
 **Description**: Developed a deep learning model to classify customers based on their satisfaction levels (0 or 1).
 **Techniques Used**: 
+  - Evaluating linear vs. non-linear relationships using assess_linearity function
+  - Applying SMOTE for class balancing  
+  - Using Quantile Transformation for scaling  
+  - Training a deep neural network  
+
 
 
 ## Conclusion
