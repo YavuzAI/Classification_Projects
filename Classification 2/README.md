@@ -1,45 +1,30 @@
+# Predicting Schizophrenia based on FNC and SBM values
 
-# Predicting Customer Satisfaction with the Santander Dataset
-
-This project focuses on predicting whether a Santander customer is satisfied (1) or not (0). The dataset is both **imbalanced** and **high-dimensional**, with **400,000** rows and **202** features. To tackle these challenges, we applied several data preparation techniques, evaluated linearity, addressed class imbalance, and trained a deep learning model to achieve high predictive accuracy.
+This project focuses on predicting whether a patient has Schizophrenia or not binary classificaiton. The dataset is  **high-dimensional**, with **86** rows and **412** features. To tackle challenges with the data, i applied several data preparation techniques, evaluated pearson corrleation, visualized the data, and trained random forest model with grid search hyperparameterr tuning to get the best of the model to achieve high predictive accuracy.
 
 ---
 
 ## Overview
 
-Due to the **large dimensionality (202 features)** and **complex, uninformative feature names**, straightforward inspection of the dataset is not feasible. The numeric columns provide little immediate insight, making advanced data manipulation and exploration techniques necessary.
+Due to the **large dimensionality (412 features)** and **complex, uninformative feature names**, straightforward inspection of the dataset is not feasible. The numeric columns provide little immediate insight but applying advanced data manipulation and exploration techniques was necessary.
 
 ---
 
 ## Key Steps
 
-### 1. Assessing Linearity
-We developed a function called `assess_linearity` to determine if the dataset’s relationships are predominantly linear or non-linear. This step was crucial, given the dataset’s high dimensionality and potential for complex interactions.
-
-![Linearity](screenshots/assess_linearity.png)
+### 1. Finding High linearly correlated features
+I applied a filtering process where i can spot  highly correlated features because we have more than 412 of them, after finding them i visualized the outliers and could not foind one with outliers. 
 
 ---
 
-### 2. Addressing Class Imbalance with SMOTE
-The target variable was significantly imbalanced (approximately **179,902** samples labeled 0 vs. **20,098** labeled 1). To mitigate this, we used **SMOTE** (Synthetic Minority Oversampling Technique) to generate new samples for the minority class, resulting in a more balanced training set.
+### 2. Data Visualziation
+I used matplotlib ad seaborn libraries to create visualizations for the data. I utilized plt.subplots() method to create a grid for the plots and used seaborn to plot the plots. 
 
-- **Before SMOTE**  
-  ![Target Distribution Before SMOTE](screenshots/target_distribution_before_smote.png)  
-  ![Before SMOTE Plot](screenshots/before_smote.png)
-
-- **After SMOTE**  
-  ![After SMOTE Plot](screenshots/after_smote.png)
+![Plots](screenshots/plot_w_sns_plt.png)
 
 ---
 
 ### 3. QuantileTransformer for Scaling
-We chose **QuantileTransformer** with `output_distribution='normal'` instead of a standard scaler. 
-
-**Why is QuantileTransformer better in this case?**  
-- **Robust to outliers**: By mapping data to a uniform or normal distribution, it reduces the influence of extreme values.  
-- **Works well with skewed data**: Quantile-based scaling preserves the overall shape of the distribution while normalizing it.  
-- **Improved performance in non-linear models**: Non-linear transformations can help certain algorithms (like neural networks) learn more effectively.
-
 
 ## 4. Deep Learning Model
 A deep learning architecture was implemented to handle the high-dimensional feature space. Below are snapshots of the model’s structure and the training progression:
